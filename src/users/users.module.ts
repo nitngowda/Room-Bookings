@@ -2,12 +2,12 @@ import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
-import { User } from './users.model'; // ✅ Ensure this is correctly imported
+import { User } from './users.model'; 
 import { AuthModule } from '../auth/auth.module';
 
 @Module({
   imports: [
-    SequelizeModule.forFeature([User]), // ✅ Inject User Model properly
+    SequelizeModule.forFeature([User]), 
     AuthModule, 
   ],
   providers: [UsersService],

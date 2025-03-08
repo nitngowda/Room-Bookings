@@ -12,8 +12,8 @@ export class UsersController {
   constructor(private usersService: UsersService) {}
 
   @Get('profile')
-  @UseGuards(AuthGuard) // 🔒 Protected route
+  @UseGuards(AuthGuard) // Protected route
   getProfile(@Req() req: AuthenticatedRequest) {
-    return req.user; // Returns the authenticated user's details
+    return req.user; 
   }
 }

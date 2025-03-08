@@ -8,7 +8,7 @@ export class AuthService {
     private readonly logger = new Logger(AuthService.name);
 
     constructor(
-        @Inject(forwardRef(() => UsersService)) // ✅ Inject UsersService manually
+        @Inject(forwardRef(() => UsersService)) 
         private readonly usersService: UsersService,
         private readonly jwtService: JwtService
     ) {}
@@ -16,7 +16,7 @@ export class AuthService {
     async validateUser(email: string, password: string): Promise<any> {
         this.logger.debug(`Validating user with email: ${email}`);
 
-        const user = await this.usersService.findOneByEmail(email); // ✅ Use UsersService instead of direct DB call
+        const user = await this.usersService.findOneByEmail(email); 
 
         if (!user) {
             this.logger.warn(`User not found with email: ${email}`);

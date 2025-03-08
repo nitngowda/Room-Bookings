@@ -8,6 +8,6 @@ import { RoomsController } from './rooms.controller';
   imports: [SequelizeModule.forFeature([Room])], // Register Room model
   providers: [RoomsService],
   controllers: [RoomsController],
-  exports: [SequelizeModule], // Export for other modules if needed
+  exports: [SequelizeModule], 
 })
 export class RoomsModule {}

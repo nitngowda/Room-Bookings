@@ -18,8 +18,8 @@ export class AuthController {
     
     return {
       message: 'Login successful',
-      token: result.token,  // Returning JWT token
-      user: result.user,    // Returning user details (without password)
+      token: result.token,  
+      user: result.user,    
     };
   }
 }

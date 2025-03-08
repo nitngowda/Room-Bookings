@@ -5,7 +5,7 @@ import { UsersModule } from '../users/users.module';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { jwtConstants } from './constants';
-import { JwtService } from '@nestjs/jwt'; // ✅ Add this import
+import { JwtService } from '@nestjs/jwt'; 
 
 @Module({
   imports: [
@@ -16,7 +16,7 @@ import { JwtService } from '@nestjs/jwt'; // ✅ Add this import
       signOptions: { expiresIn: '1h' },
     }),
   ],
-  providers: [AuthService], // ❌ Remove `JwtService`
+  providers: [AuthService], 
   controllers: [AuthController],
   exports: [AuthService, JwtModule],
 })

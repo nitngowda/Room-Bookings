@@ -36,17 +36,17 @@ export class RoomsService {
     return { message: `Room with ID ${id} deleted successfully` };
   }
 
-  // ✅ NEW METHOD: Check if Room is Available
+  // Check if Room is Available
   async isRoomAvailable(id: number): Promise<{ id: number; available: boolean }> {
-    const room = await this.roomModel.findByPk(id, { attributes: ['id', 'availability'] }); // ✅ Fetch only id & availability
+    const room = await this.roomModel.findByPk(id, { attributes: ['id', 'availability'] }); 
     
-    console.log("Room Found:", room); // ✅ Debugging log
+    console.log("Room Found:", room); 
   
     if (!room) {
       throw new NotFoundException(`Room with ID ${id} not found`);
     }
     
-    return { id: room.id, available: room.availability }; // ✅ Explicitly return availability
+    return { id: room.id, available: room.availability }; 
   }
   
 }

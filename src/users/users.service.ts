@@ -19,7 +19,7 @@ export class UsersService implements OnModuleInit {
 
   private async seedSuperAdmin() {
     const superAdminEmail = 'superadmin@example.com';
-    const superAdminPassword = 'admin123'; // Change this in production!
+    const superAdminPassword = 'admin123'; 
 
     const existingSuperAdmin = await this.findOneByEmail(superAdminEmail);
     if (existingSuperAdmin) {
@@ -29,7 +29,7 @@ export class UsersService implements OnModuleInit {
 
     const hashedPassword = await bcrypt.hash(superAdminPassword, 10);
 
-    // ✅ Correct way to create a user
+    // create a user
     await this.userModel.create<User>({
       name: 'SuperAdmin',
       email: superAdminEmail,

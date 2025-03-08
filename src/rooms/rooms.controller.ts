@@ -32,7 +32,7 @@ export class RoomsController {
     return this.roomsService.deleteRoom(id);
   }
 
-  // ✅ NEW API: Check Room Availability
+  //NEW API: Check Room Availability
   @Get(':id/availability')
 async checkRoomAvailability(@Param('id') id: string) {
   const roomId = parseInt(id, 10);
@@ -41,7 +41,7 @@ async checkRoomAvailability(@Param('id') id: string) {
   }
 
   const result = await this.roomsService.isRoomAvailable(roomId);
-  return result;  // ✅ Now it should return `{ id: 1, available: true/false }`
+  return result;  
 }
 
   

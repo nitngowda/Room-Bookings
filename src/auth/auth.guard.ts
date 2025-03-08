@@ -19,7 +19,7 @@ export class AuthGuard implements CanActivate {
 
     try {
       const decoded = this.jwtService.verify(token);
-      request.user = decoded; // ✅ Now TypeScript recognizes `user`
+      request.user = decoded; 
       return true;
     } catch (error) {
       throw new UnauthorizedException('Invalid or expired token');

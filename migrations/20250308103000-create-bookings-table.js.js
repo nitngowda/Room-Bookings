@@ -1,24 +1,30 @@
-'use strict';
-
 module.exports = {
-  async up(queryInterface, Sequelize) {
+  up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Bookings', {
       id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         allowNull: false,
+        primaryKey: true,
       },
       roomId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         allowNull: false,
-        references: { model: 'Rooms', key: 'id' },
+        references: {
+          model: 'Rooms',  // ✅ Matches `create-rooms-table.js`
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
       userId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         allowNull: false,
-        references: { model: 'Users', key: 'id' },
+        references: {
+          model: 'Users',  // ✅ Matches `create-users-table.js`
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
       startTime: {
@@ -32,17 +38,14 @@ module.exports = {
       createdAt: {
         type: Sequelize.DATE,
         allowNull: false,
-        defaultValue: Sequelize.fn('NOW'),
       },
       updatedAt: {
         type: Sequelize.DATE,
         allowNull: false,
-        defaultValue: Sequelize.fn('NOW'),
       },
     });
   },
-
-  async down(queryInterface) {
+  down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('Bookings');
   },
 };

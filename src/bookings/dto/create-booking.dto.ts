@@ -10,10 +10,10 @@ export class CreateBookingDto {
   roomId: number;
 
   @IsNotEmpty()
-  @IsDateString() // ✅ Ensures proper date format
+  @IsDateString() 
   startTime: Date;
 
   @IsNotEmpty()
-  @IsDateString() // ✅ Ensures proper date format
+  @IsDateString() 
   endTime: Date;
 }

@@ -3,7 +3,7 @@ import { BookingsService } from './bookings.service';
 import { CreateBookingDto } from './dto/create-booking.dto';
 
 @Controller('bookings')
-export class BookingsController {
+export class BookingsController {  
   constructor(private readonly bookingsService: BookingsService) {}
 
   @Post()
@@ -26,3 +26,5 @@ export class BookingsController {
     return this.bookingsService.deleteBooking(id);
   }
 }
+
+
